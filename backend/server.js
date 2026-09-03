@@ -3,6 +3,8 @@ require('dotenv').config();
 const express  = require('express');
 const cors     = require('cors');
 const mongoose = require('mongoose');
+const productosRoutes = require('./routes/productos');
+const verificarToken = require('./middleware/auth');
 const authRoutes     = require('./routes/auth');          // ← AGREGAR S14
 const ordenesRoutes = require('./routes/ordenes');  // ← AGREGAR S15
 
