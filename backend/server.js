@@ -3,9 +3,8 @@ require('dotenv').config();
 const express  = require('express');
 const cors     = require('cors');
 const mongoose = require('mongoose');
-const Producto = require('./models/Producto');
 const authRoutes     = require('./routes/auth');          // ← AGREGAR S14
-const verificarToken = require('./middleware/auth');       // ← AGREGAR S14
+const ordenesRoutes = require('./routes/ordenes');  // ← AGREGAR S15
 
 // 2. Crear la app y leer el puerto del .env
 const app  = express();
@@ -76,3 +75,9 @@ app.listen(PORT, () => {
 
 // 11. Rutas de autenticación ← NUEVO S14
 app.use('/api/auth', authRoutes);
+
+// 12. Rutas de productos
+app.use('/api/productos', productosRoutes);
+
+// 13. Rutas de órdenes  ← AGREGAR S15
+app.use('/api/ordenes', ordenesRoutes);  // ← AGREGAR S15
